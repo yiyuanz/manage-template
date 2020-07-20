@@ -14,12 +14,12 @@ import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
+import com.ruoyi.system.dao.SysRoleMapper;
 import com.ruoyi.system.domain.SysRole;
 import com.ruoyi.system.domain.SysRoleDept;
 import com.ruoyi.system.domain.SysRoleMenu;
 import com.ruoyi.system.domain.SysUserRole;
 import com.ruoyi.system.mapper.SysRoleDeptMapper;
-import com.ruoyi.system.mapper.SysRoleMapper;
 import com.ruoyi.system.mapper.SysRoleMenuMapper;
 import com.ruoyi.system.mapper.SysUserRoleMapper;
 import com.ruoyi.system.service.ISysRoleService;
@@ -136,6 +136,11 @@ public class SysRoleServiceImpl implements ISysRoleService
     public boolean deleteRoleById(Long roleId)
     {
         return roleMapper.deleteRoleById(roleId) > 0 ? true : false;
+//    	SysRole srole = new SysRole();
+//    	srole.setRoleId(roleId);
+//    	this.roleMapper.delete(srole);
+//    	return Boolean.TRUE;
+    	
     }
 
     /**
@@ -172,6 +177,9 @@ public class SysRoleServiceImpl implements ISysRoleService
     {
         // 新增角色信息
         roleMapper.insertRole(role);
+//        System.out.println("-----cesi-----insert---");
+//        roleMapper.insert(role);
+        
         return insertRoleMenu(role);
     }
 

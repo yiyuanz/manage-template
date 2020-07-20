@@ -4,11 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
+import tk.mybatis.spring.annotation.MapperScan;
+
 /**
  * 启动程序
  * 
  * @author ruoyi
  */
+@MapperScan(basePackages = "com.ruoyi.system.dao")
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class ManageTemplateMain
 {

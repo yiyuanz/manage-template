@@ -1,5 +1,8 @@
 package com.ruoyi.system.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -17,6 +20,8 @@ public class SysRole extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 角色ID */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Excel(name = "角色序号", cellType = ColumnType.NUMERIC)
     private Long roleId;
 

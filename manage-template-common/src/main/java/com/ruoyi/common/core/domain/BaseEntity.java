@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.persistence.Transient;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
@@ -16,9 +19,11 @@ public class BaseEntity implements Serializable
     private static final long serialVersionUID = 1L;
 
     /** 搜索值 */
+    @Transient
     private String searchValue;
 
     /** 创建者 */
+    @Transient
     private String createBy;
 
     /** 创建时间 */
@@ -26,6 +31,7 @@ public class BaseEntity implements Serializable
     private Date createTime;
 
     /** 更新者 */
+    @Transient
     private String updateBy;
 
     /** 更新时间 */
@@ -33,9 +39,11 @@ public class BaseEntity implements Serializable
     private Date updateTime;
 
     /** 备注 */
+    @Transient
     private String remark;
 
     /** 请求参数 */
+    @Transient
     private Map<String, Object> params;
 
     public String getSearchValue()

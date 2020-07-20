@@ -1,14 +1,16 @@
-package com.ruoyi.system.mapper;
+package com.ruoyi.system.dao;
 
 import java.util.List;
+
 import com.ruoyi.system.domain.SysRole;
+import com.ruoyi.zxydk.common.mapper.ZxydkBaseMapper;
 
 /**
  * 角色表 数据层
  * 
  * @author ruoyi
  */
-public interface SysRoleMapper
+public interface SysRoleMapper extends ZxydkBaseMapper<SysRole>
 {
     /**
      * 根据条件分页查询角色数据
