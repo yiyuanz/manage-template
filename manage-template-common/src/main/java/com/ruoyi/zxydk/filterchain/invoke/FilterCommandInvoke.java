@@ -37,9 +37,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 
 import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
+import com.ruoyi.zxydk.eventbus.bus.ZxydkEventBus;
 import com.ruoyi.zxydk.filterchain.interfaces.FilterCommandChain;
 import com.ruoyi.zxydk.filterchain.interfaces.Filtercommand;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@SuppressWarnings("all")
 public abstract class FilterCommandInvoke<R extends Object> implements Filtercommand<R> {
 	
 	/**
@@ -59,6 +68,11 @@ public abstract class FilterCommandInvoke<R extends Object> implements Filtercom
 	
 	// order by grade of command execute 
 	private int orderGrade;
+	
+	@Autowired
+	private ZxydkEventBus eventBus;
+	
+	
 	
 	@Override
 	public void transmit(R object, Map<String, Object> vals, FilterCommandChain<R> chain) {
