@@ -34,11 +34,20 @@
         <lombok.version>1.18.8</lombok.version>
         <javax.persistence.version>2.2</javax.persistence.version>
         <mapper.spring.boot.starter.version>2.1.0</mapper.spring.boot.starter.version>
+        <javassist.version>3.9.0.GA</javassist.version>
     </properties>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
         <dependencies>
+        	<!--  (toString) javassist  -->
+        	<dependency>
+			    <groupId>javassist</groupId>
+			    <artifactId>javassist</artifactId>
+			    <version>${javassist.version}</version>
+			</dependency>
+			        	
+        
         	<!-- google guava -->
 			<dependency>
 			    <groupId>com.google.guava</groupId>

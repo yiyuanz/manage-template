@@ -17,7 +17,13 @@
     </description>
 
     <dependencies>
-    
+   	
+   		<!--  (toString) javassist  -->
+       	<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		</dependency> 
+   
     	<!-- google guava -->
 			<dependency>
 			    <groupId>com.google.guava</groupId>
@@ -53,6 +59,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
+        
+        <!-- spring context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		</dependency>
 
         <!--Shiro核心框架 -->
         <dependency>

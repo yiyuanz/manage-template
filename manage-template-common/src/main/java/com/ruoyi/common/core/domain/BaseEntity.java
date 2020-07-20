@@ -5,9 +5,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.Column;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.ToString;
 
 /**
  * Entity基类
@@ -28,6 +31,10 @@ public class BaseEntity implements Serializable
 
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(
+        name = "create_time",
+        columnDefinition = " timestamp  DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'"
+    )
     private Date createTime;
 
     /** 更新者 */
@@ -36,6 +43,11 @@ public class BaseEntity implements Serializable
 
     /** 更新时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(
+        name = "update_time",
+        columnDefinition =
+                "timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间'"
+    )
     private Date updateTime;
 
     /** 备注 */

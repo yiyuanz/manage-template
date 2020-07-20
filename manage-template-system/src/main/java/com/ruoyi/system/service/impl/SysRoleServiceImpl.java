@@ -5,9 +5,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.text.Convert;
@@ -23,6 +25,7 @@ import com.ruoyi.system.mapper.SysRoleDeptMapper;
 import com.ruoyi.system.mapper.SysRoleMenuMapper;
 import com.ruoyi.system.mapper.SysUserRoleMapper;
 import com.ruoyi.system.service.ISysRoleService;
+import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
 
 /**
  * 角色 业务层处理
@@ -43,6 +46,9 @@ public class SysRoleServiceImpl implements ISysRoleService
 
     @Autowired
     private SysRoleDeptMapper roleDeptMapper;
+    
+    @Autowired
+    private ZxydkDomainFactory domainFactory;
 
     /**
      * 根据条件分页查询角色数据
