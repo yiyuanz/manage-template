@@ -27,7 +27,7 @@
  * 修订记录：
  * zyiyuan 下午5:40:54 创建
  */
-package com.ruoyi.zxydk.domain.autoconfig.propertis;
+package com.ruoyi.zxydk.propertis;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;

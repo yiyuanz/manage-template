@@ -25,13 +25,15 @@
 
 /*
  * 修订记录：
- * zyiyuan 1:59:10 PM 创建
+ * zyiyuan 2:56:30 PM 创建
  */
-package com.ruoyi.zxydk.domain.autoconfig;
+package com.ruoyi.zxydk.filterchain.autoconfig;
 
+import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -39,7 +41,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
+import com.ruoyi.zxydk.domain.autoconfig.ZxydkDomainAutoConfig;
+import com.ruoyi.zxydk.filterchain.factory.ZxydkFilterCommandFactory;
 import com.ruoyi.zxydk.propertis.ZxydkProperties;
 
 
@@ -47,7 +50,8 @@ import com.ruoyi.zxydk.propertis.ZxydkProperties;
 @Configuration
 @EnableConfigurationProperties({ZxydkProperties.class})
 @ConditionalOnProperty(value = {"com.ruoyi.manage.template.autoconfig.enable"}, matchIfMissing = true)
-public class ZxydkDomainAutoConfig implements ApplicationContextAware {
+@AutoConfigureAfter(ZxydkDomainAutoConfig.class)
+public class ZxydkFilterChainAutoConfig implements ApplicationContextAware {
 
 	@Autowired
 	private ZxydkProperties zdkProperties;
@@ -66,14 +70,13 @@ public class ZxydkDomainAutoConfig implements ApplicationContextAware {
 		this.autowireFactory = this.context.getAutowireCapableBeanFactory();
 	}
 	
-	
 	/**
-	 * @category 实体工厂 
+	 * @category 责任链 
 	 */
 	@Bean
-	public ZxydkDomainFactory zxydkDomainFactory(){
+	public ZxydkFilterCommandFactory zxydkFilterCommandFactory() {
 		
-		return  new ZxydkDomainFactory();
+		return new ZxydkFilterCommandFactory();
 	}
-	
+	 
 }

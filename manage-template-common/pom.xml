@@ -17,6 +17,12 @@
     </description>
 
     <dependencies>
+    
+    	<!-- (assert) jjwt -->
+       	<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		</dependency>
    	
    		<!--  (toString) javassist  -->
        	<dependency>
