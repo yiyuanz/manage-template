@@ -32,6 +32,9 @@ package com.ruoyi.zxydk.propertis;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 /**
  * @category 自定义zdk的组件所需配置 
@@ -45,6 +48,17 @@ public class ZxydkProperties implements InitializingBean {
 	
 	/** 是否打开自动配置 */
 	private boolean enable = true;
+	
+	/** 线程池-最小通道 ： 默认10 */
+	private int threadMin = 10;
+	 
+	/** 线程池-最大通道 ： 默认100 */
+	private int threadMax = 100;
+	 
+	/** 线程池-等待队列 ： 默认50 */
+	private int threadQueue = 50;
+	 
+	
 	
 //	/** 
 //	 * 流程引擎 流程图定义的路径 （可自定义修改） 
@@ -72,6 +86,7 @@ public class ZxydkProperties implements InitializingBean {
 	public void setEnable(boolean enable) {
 		this.enable = enable;
 	}
+	
 
 //	public String getModuleName() {
 //		return moduleName;
@@ -81,6 +96,30 @@ public class ZxydkProperties implements InitializingBean {
 //		this.moduleName = moduleName;
 //	}
 	
+	public int getThreadMin() {
+		return threadMin;
+	}
+
+	public void setThreadMin(int threadMin) {
+		this.threadMin = threadMin;
+	}
+
+	public int getThreadMax() {
+		return threadMax;
+	}
+
+	public void setThreadMax(int threadMax) {
+		this.threadMax = threadMax;
+	}
+
+	public int getThreadQueue() {
+		return threadQueue;
+	}
+
+	public void setThreadQueue(int threadQueue) {
+		this.threadQueue = threadQueue;
+	}
+
 	public boolean equals(Object o) {
 		if (o == this) {
 			return true;
@@ -103,8 +142,7 @@ public class ZxydkProperties implements InitializingBean {
 	}
 
 	public String toString() {
-		return "Properties(enable=\"" + this.isEnable() ;
-//		return "Properties(enable=" + this.isEnable() + ", moduleName=" + this.getModuleName() + ",flowFiles=" + this.getFlowFiles();
+		return "Properties(enable=\"" + this.isEnable() + ", threadMin=" + this.getThreadMin() + ", threadMax=" + ",threadQueue=" + this.getThreadQueue() ;
 	}
  
 	

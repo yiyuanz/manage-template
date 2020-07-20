@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.ruoyi.zxydk.domain.autoconfig.ZxydkDomainAutoConfig,\
-com.ruoyi.zxydk.filterchain.autoconfig.ZxydkFilterChainAutoConfig
+com.ruoyi.zxydk.filterchain.autoconfig.ZxydkFilterChainAutoConfig,\
+com.ruoyi.zxydk.eventbus.autoconfig.ZxydkEventAutoConfig

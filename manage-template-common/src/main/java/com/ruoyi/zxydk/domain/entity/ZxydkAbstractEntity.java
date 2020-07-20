@@ -33,7 +33,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ruoyi.common.core.domain.BaseEntity;
+import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
+import com.ruoyi.zxydk.eventbus.bus.ZxydkEventBus;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +47,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public   class ZxydkAbstractEntity extends BaseEntity {
+@SuppressWarnings("all")
+public abstract class ZxydkAbstractEntity extends BaseEntity {
 
 	/**
 	 * serialVersionUID
@@ -57,6 +62,27 @@ public   class ZxydkAbstractEntity extends BaseEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Autowired
+	private ZxydkDomainFactory domainFactory;
+	
+	@Autowired
+	private ZxydkEventBus eventBus;
+	
+	/**
+	 * @category 事务提交后 发送事件  （可同步 、 异步处理） 
+	 */
+	public void publishAfterTransactionCommitted() {
+		this.eventBus.publishAfterTransactionCommitted(this);
+	}
+	
+	/**
+	 * @category 普通发送事件  （可同步 、 异步处理） 
+	 */
+	public void publish() {
+		this.eventBus.publish(this);
+	}
+	
 	
 	
 	

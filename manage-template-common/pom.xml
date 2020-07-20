@@ -18,6 +18,12 @@
 
     <dependencies>
     
+    	<!--  mbassador(eventbus)  -->
+       	<dependency>
+		    <groupId>net.engio</groupId>
+		    <artifactId>mbassador</artifactId>
+		</dependency>
+    
     	<!-- (assert) jjwt -->
        	<dependency>
 		    <groupId>io.jsonwebtoken</groupId>

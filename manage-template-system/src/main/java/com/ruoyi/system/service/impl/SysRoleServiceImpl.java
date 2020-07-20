@@ -21,11 +21,13 @@ import com.ruoyi.system.domain.SysRole;
 import com.ruoyi.system.domain.SysRoleDept;
 import com.ruoyi.system.domain.SysRoleMenu;
 import com.ruoyi.system.domain.SysUserRole;
+import com.ruoyi.system.eventhandle.TestEvent;
 import com.ruoyi.system.mapper.SysRoleDeptMapper;
 import com.ruoyi.system.mapper.SysRoleMenuMapper;
 import com.ruoyi.system.mapper.SysUserRoleMapper;
 import com.ruoyi.system.service.ISysRoleService;
 import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
+import com.ruoyi.zxydk.eventbus.bus.ZxydkEventBus;
 
 /**
  * 角色 业务层处理
@@ -49,6 +51,9 @@ public class SysRoleServiceImpl implements ISysRoleService
     
     @Autowired
     private ZxydkDomainFactory domainFactory;
+    
+    @Autowired
+    private ZxydkEventBus eventBus;
 
     /**
      * 根据条件分页查询角色数据
@@ -185,6 +190,10 @@ public class SysRoleServiceImpl implements ISysRoleService
         roleMapper.insertRole(role);
 //        System.out.println("-----cesi-----insert---");
 //        roleMapper.insert(role);
+        
+        TestEvent event = new TestEvent();
+        event.setTest("my test");
+        eventBus.publishAfterTransactionCommitted(event);
         
         return insertRoleMenu(role);
     }

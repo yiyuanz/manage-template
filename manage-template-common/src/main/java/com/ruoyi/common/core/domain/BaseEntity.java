@@ -17,6 +17,7 @@ import lombok.ToString;
  * 
  * @author ruoyi
  */
+@ToString
 public class BaseEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
