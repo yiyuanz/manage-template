@@ -44,6 +44,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -53,6 +54,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskDecorator;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import com.ruoyi.zxydk.domain.autoconfig.ZxydkDomainAutoConfig;
 import com.ruoyi.zxydk.eventbus.annotation.ZxydkEventHandler;
 import com.ruoyi.zxydk.eventbus.bus.ZxydkEventBus;
 import com.ruoyi.zxydk.eventbus.factory.ExSubscriptionFactory;
@@ -71,6 +73,7 @@ import net.engio.mbassy.subscription.SubscriptionManagerProvider;
 @Configuration
 @EnableConfigurationProperties({ZxydkProperties.class})
 @ConditionalOnProperty(value = {"com.ruoyi.manage.template.autoconfig.enable"}, matchIfMissing = true)
+@AutoConfigureAfter(ZxydkDomainAutoConfig.class)
 public class ZxydkEventAutoConfig  implements ApplicationContextAware {
 
 	// 日志
