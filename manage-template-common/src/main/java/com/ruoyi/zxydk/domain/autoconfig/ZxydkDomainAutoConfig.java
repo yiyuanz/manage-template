@@ -42,7 +42,9 @@ import org.springframework.context.annotation.Configuration;
 import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
 import com.ruoyi.zxydk.propertis.ZxydkProperties;
 
+import tk.mybatis.spring.annotation.MapperScan;
 
+@MapperScan(basePackages = "com.ruoyi.*.dao")
 @SuppressWarnings("all")
 @Configuration
 @EnableConfigurationProperties({ZxydkProperties.class})

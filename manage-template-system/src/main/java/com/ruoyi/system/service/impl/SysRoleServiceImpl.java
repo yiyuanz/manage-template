@@ -151,11 +151,6 @@ public class SysRoleServiceImpl implements ISysRoleService
     public boolean deleteRoleById(Long roleId)
     {
         return roleMapper.deleteRoleById(roleId) > 0 ? true : false;
-//    	SysRole srole = new SysRole();
-//    	srole.setRoleId(roleId);
-//    	this.roleMapper.delete(srole);
-//    	return Boolean.TRUE;
-    	
     }
 
     /**

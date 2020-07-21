@@ -11,7 +11,6 @@ import tk.mybatis.spring.annotation.MapperScan;
  * 
  * @author ruoyi
  */
-@MapperScan(basePackages = "com.ruoyi.system.dao")
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class ManageTemplateMain
 {
