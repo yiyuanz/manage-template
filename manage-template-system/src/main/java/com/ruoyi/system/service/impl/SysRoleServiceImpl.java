@@ -191,7 +191,7 @@ public class SysRoleServiceImpl implements ISysRoleService
     public int insertRole(SysRole role)
     {
         // 新增角色信息
-        roleMapper.insertRole(role);
+//        roleMapper.insertRole(role); 
 //        System.out.println("-----cesi-----insert---");
 //        roleMapper.insert(role);
         
