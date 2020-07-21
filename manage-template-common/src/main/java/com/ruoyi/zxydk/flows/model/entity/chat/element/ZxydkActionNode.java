@@ -40,7 +40,7 @@ import com.ruoyi.zxydk.flows.model.arggreroot.chat.base.ZxydkFlowBaseAction;
  * @category 流程图元素 -  节点
  *  
  */
-public interface ZxydkActionNode<T extends Object> extends ZxydkFlowBaseAction<T> , ApplicationContextAware , InitializingBean {
+public interface ZxydkActionNode<T extends Object> extends ZxydkFlowBaseAction<T>  {
 	
 	
 	/**************************************- 流程节点 - 节点名定义（唯一标识） -********************************************************************************/

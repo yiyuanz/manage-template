@@ -67,6 +67,7 @@ public class ZxydkActorFlowEngine<T extends Object> implements ZxydkFlowEngine<T
 	@Override
 	public void manualRegistActionFlow(ZxydkActionFlow<T> actionFlow) {
 		// ... 后期迭代升级手动配置后，自动注入到容器中 ...
+		this.actionFlow = actionFlow;
 	}
 
 	@Override

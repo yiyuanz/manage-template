@@ -16,12 +16,12 @@ import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
+import com.ruoyi.manage.template.TestService;
 import com.ruoyi.system.dao.SysRoleMapper;
 import com.ruoyi.system.domain.SysRole;
 import com.ruoyi.system.domain.SysRoleDept;
 import com.ruoyi.system.domain.SysRoleMenu;
 import com.ruoyi.system.domain.SysUserRole;
-import com.ruoyi.system.eventhandle.TestEvent;
 import com.ruoyi.system.mapper.SysRoleDeptMapper;
 import com.ruoyi.system.mapper.SysRoleMenuMapper;
 import com.ruoyi.system.mapper.SysUserRoleMapper;
@@ -54,6 +54,10 @@ public class SysRoleServiceImpl implements ISysRoleService
     
     @Autowired
     private ZxydkEventBus eventBus;
+    
+//    @Autowired
+//    private  TestService testService;
+    
 
     /**
      * 根据条件分页查询角色数据
@@ -191,9 +195,11 @@ public class SysRoleServiceImpl implements ISysRoleService
 //        System.out.println("-----cesi-----insert---");
 //        roleMapper.insert(role);
         
-        TestEvent event = new TestEvent();
-        event.setTest("my test");
-        eventBus.publishAfterTransactionCommitted(event);
+//        TestEvent event = new TestEvent();
+//        event.setTest("my test");
+//        eventBus.publishAfterTransactionCommitted(event);
+        
+//        testService.say();
         
         return insertRoleMenu(role);
     }

@@ -104,20 +104,6 @@ public class ZxydkActionAbstractNode<T extends Object> implements ZxydkActionNod
 	@Autowired
 	protected TransactionTemplate template;
 
-	/** spring context */
-	protected ApplicationContext context;
-	
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		// TODO Auto-generated method stub
-		this.context = applicationContext;
-	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public void setNodeName(String name) {

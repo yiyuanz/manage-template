@@ -85,9 +85,6 @@ public class ZxydkFlowDomainServiceImpl<T extends Object> implements ZxydkFlowDo
 	
 	private AutowireCapableBeanFactory capableBeanFactory;
 	
-	/** 静态的流程文件 */
-	private List<Resource> resources = Lists.newArrayList();
-
 	private ApplicationContext applicationContext;
 	
 	@Autowired
