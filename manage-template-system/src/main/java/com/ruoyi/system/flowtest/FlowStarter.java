@@ -38,7 +38,7 @@ import com.ruoyi.zxydk.flows.constants.ZxydkFlowContants;
 import com.ruoyi.zxydk.flows.model.entity.chat.actor.ZxydkActionAbstractNode;
 
 
-@ZxydkFlowChat(name = "test" , version = "1.0")
+@ZxydkFlowChat(name = "test" , version = "1.0", hasOpenLogger = true)
 @ZxydkFlowNode(name = ZxydkFlowContants.FLOW_SIGN_OF_START_ACTOR_NODE , 
 			   conditions = {
 			      @ZxydkFlowTransition(to = "step1" , desc = "step1" , event = "step1") 
