@@ -10,13 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Lists;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
-import com.ruoyi.manage.template.TestService;
+import com.ruoyi.manage.template.forkJoin.MyTestFork;
 import com.ruoyi.system.dao.SysRoleMapper;
 import com.ruoyi.system.domain.SysRole;
 import com.ruoyi.system.domain.SysRoleDept;
@@ -28,6 +29,7 @@ import com.ruoyi.system.mapper.SysUserRoleMapper;
 import com.ruoyi.system.service.ISysRoleService;
 import com.ruoyi.zxydk.domain.factory.ZxydkDomainFactory;
 import com.ruoyi.zxydk.eventbus.bus.ZxydkEventBus;
+import com.ruoyi.zxydk.threadpool.forkjoin.factory.ZxydkForkJoinFactory;
 
 /**
  * 角色 业务层处理
@@ -54,6 +56,9 @@ public class SysRoleServiceImpl implements ISysRoleService
     
     @Autowired
     private ZxydkEventBus eventBus;
+    
+    @Autowired
+    private ZxydkForkJoinFactory factory;
     
 //    @Autowired
 //    private  TestService testService;
@@ -195,7 +200,7 @@ public class SysRoleServiceImpl implements ISysRoleService
 //        eventBus.publishAfterTransactionCommitted(event);
         
 //        testService.say();
-        
+        factory.newInstance(MyTestFork.class, Lists.newArrayList("zhang" , "yi" , "yuan" , "song" , "min" ,"xin" , "yin" , "ze" ,"rui")).start(5);
         return insertRoleMenu(role);
     }
 
